@@ -1,0 +1,1 @@
+tbuild -f .\dump-one.tpt -v .\dump-one.ini
