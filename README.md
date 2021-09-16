@@ -24,7 +24,7 @@ Maybe even views, stored procedures, roles, permissions etc, but this is goung t
 You might want to get this working with just one test table first.
 
 ```ps1
-.\dump.ps1
+.\dump-one.ps1
 ```
 
 ```log

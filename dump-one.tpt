@@ -1,9 +1,15 @@
-DEFINE JOB EXPORT_CUSTOMER
-DESCRIPTION 'Export GAME table to a delimited file'
+/*
+Author: Christopher Mortimer
+Date:   2021-09-16
+Desc:   Generic TPT script to export a table to a csv file
+*/
+
+DEFINE JOB EXPORT_TABLE
+DESCRIPTION 'Export table to a delimited file'
 (
-  DEFINE SCHEMA sch_CUSTOMER FROM TABLE 'PRD_ADS_BAC_UNITA_DB.game';
+  DEFINE SCHEMA schema_table FROM TABLE 'PRD_ADS_BAC_UNITA_DB.game';
   APPLY TO OPERATOR ($FILE_WRITER()[1] ATTR (FileName = 'game.csv') )
-  SELECT * FROM OPERATOR ($EXPORT(sch_CUSTOMER)[1] ATTR (
+  SELECT * FROM OPERATOR ($EXPORT(schema_table)[1] ATTR (
   SelectStmt = 'select * from PRD_ADS_BAC_UNITA_DB.game ;'
 )
 );
